@@ -1,1 +1,1 @@
-export { default as withInterval } from './interval';
+export { default as withIndex } from './withIndex';
