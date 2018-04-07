@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import { addPost, hasPost, idSet, update, updateById } from './operations';
 import {
   CREATE_POST,
   DELETE_POST,
@@ -7,6 +8,12 @@ import {
   SET_POSTS,
   UPDATE_POST,
 } from './constants';
+
+const set = arr => state => arr;
+
+const create = post => state => post;
+
+const set = arr => state => arr;
 
 const set = arr => state => arr;
 

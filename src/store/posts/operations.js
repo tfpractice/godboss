@@ -1,5 +1,3 @@
-export const clock = (active = false, remaining = 0) => ({ active, remaining });
-
 export const post = (
   title = `title`,
   message = `message`,
@@ -26,3 +24,10 @@ export const update = next => orig => ({ ...orig, ...next });
 
 export const updateById = nxt => orig =>
   sameID(nxt)(orig) ? update(nxt)(orig) : orig;
+
+export const idSet = posts => new Set(posts.map(id));
+
+export const hasPost = (nxt = post()) => posts => idSet(posts).had(id(nxt));
+
+export const addPost = nxt => posts =>
+  hasPost(nxt)(posts) ? posts : posts.concat(nxt);
