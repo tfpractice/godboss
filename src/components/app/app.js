@@ -1,8 +1,6 @@
 import Grid from 'material-ui/Grid';
 import React from 'react';
 
-import Timer from '../timer';
-
 const App = () => (
   <Grid container justify="center" alignContent="center" alignItems="center">
     <Grid item xs={11}>
@@ -12,7 +10,7 @@ const App = () => (
         alignContent="center"
         alignItems="center">
         <Grid item xs={11}>
-          <Timer />
+          Fairy GB{' '}
         </Grid>
       </Grid>
     </Grid>
