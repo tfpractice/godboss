@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { PostCard } from '../posts';
 
 const Home = ({ posts, ...props }) => {
-  console.log(`posts`, posts, props);
+  const a = 0;
+
   return (
     <Grid container justify="center" alignContent="center" alignItems="center">
       <Grid item xs={11}>
@@ -21,9 +22,10 @@ const Home = ({ posts, ...props }) => {
           justify="center"
           alignContent="center"
           alignItems="center"
+          spacing={40}
         >
           {posts.map(p => (
-            <Grid key={p.id} item xs={11} sm={11} md={6}>
+            <Grid key={p.id} item xs={11} sm={6} md={4}>
               <Link to={`/posts/${p.id}`}>
                 <PostCard post={p} />
               </Link>

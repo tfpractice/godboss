@@ -12,9 +12,11 @@ const PostsRoute = ({ match, ...props }) => {
   return (
     <Grid container justify="center" alignContent="center">
       <Grid item xs={11}>
-        <Route exact path={match.path} component={Home} />
-        <Route path={`${match.path}/:id`} component={CardRoute} />
-        <Route path={`${match.path}/create`} component={CreateForm} />
+        <Switch>
+          <Route exact path={match.url} component={Home} />
+          <Route path={`${match.path}/new`} component={CreateForm} />
+          <Route path={`${match.path}/:id`} component={CardRoute} />
+        </Switch>
       </Grid>
     </Grid>
   );

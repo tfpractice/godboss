@@ -4,11 +4,13 @@ import Grid from 'material-ui/Grid';
 import React from 'react';
 import Text from 'material-ui/Typography';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
+import { CreateForm, EditForm } from '../form';
+import { Posts } from '../../../store';
 import { sameID } from '../../../store/posts/operations';
 
 const PostCard = props => {
-  console.log(`PostCardprops`, props);
   const { post } = props;
 
   return (
@@ -35,12 +37,18 @@ const PostCard = props => {
               alignContent="center"
               alignItems="center"
             >
-              {/* <Grid item xs={4}>
-                <Button onClick={toggle}>Toggle Countdown</Button>
-                </Grid>
-                <Grid item xs={4}>
-                <Button onClick={stop}>Clear Timer</Button>
-              </Grid> */}
+              <Grid item xs={6}>
+                <Link to={`/posts/${post.id}/edit`}>
+                  <Button>Edit Post</Button>
+                </Link>
+              </Grid>
+              <Grid item xs={4}>
+                <Link to={`/posts`}>
+                  <Button onClick={() => props.deletePost(props.post)}>
+                    Edit Post
+                  </Button>
+                </Link>
+              </Grid>
             </Grid>
           </CardActions>
         </Card>
@@ -51,6 +59,6 @@ const PostCard = props => {
 
 const mapState = ({ posts }, { post, ...own }) => ({});
 
-const connected = connect(mapState);
+const connected = connect(mapState, Posts.actions);
 
 export default connected(PostCard);

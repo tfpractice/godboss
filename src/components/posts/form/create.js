@@ -5,17 +5,15 @@ import { connect } from 'react-redux';
 import ReduxPost from './form';
 import { Posts } from '../../../store';
 
-const PostForm = ({ createPost, ...props }) => {
+const CreatForm = ({ createPost, ...props }) => {
   const a = 0;
-
-  console.log(`props`, props);
 
   return (
     <Grid container justify="center" alignContent="center" alignItems="center">
       <Grid item xs={11}>
         <ReduxPost
           form={`createPost`}
-          initialValues={{}}
+          initialValues={props.post}
           onSubmit={createPost}
         />
       </Grid>
@@ -23,6 +21,6 @@ const PostForm = ({ createPost, ...props }) => {
   );
 };
 
-const mapState = ({ timer }) => ({});
+const mapState = ({ posts }) => ({ post: { id: posts.length } });
 
-export default connect(mapState, Posts.actions)(PostForm);
+export default connect(mapState, Posts.actions)(CreatForm);

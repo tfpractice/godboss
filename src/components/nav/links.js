@@ -1,6 +1,6 @@
 const links = [
   { pathname: `/`, label: `Home` },
-  { pathname: `/new`, label: `create` },
+  { pathname: `/posts/new`, label: `New Post` },
 ];
 
 export default links;
