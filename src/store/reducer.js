@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
 
-// import { reducer as dogs } from "./dogs";
+import { reducer as posts } from './posts';
 
-const basic = (state = [], action) => state;
-
-export default combineReducers({ form });
+export default combineReducers({ form, posts });

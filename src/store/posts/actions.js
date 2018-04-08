@@ -1,6 +1,11 @@
-import axios from 'axios';
-
-import { addPost, hasPost, idSet, update, updateById } from './operations';
+import {
+  addPost,
+  dropPost,
+  hasPost,
+  idSet,
+  update,
+  updateById,
+} from './operations';
 import {
   CREATE_POST,
   DELETE_POST,
@@ -11,19 +16,22 @@ import {
 
 const set = arr => state => arr;
 
-const create = post => state => post;
-
-const set = arr => state => arr;
-
-const set = arr => state => arr;
-
-export const setDogs = dogs => ({
+export const setPosts = posts => ({
   type: SET_POSTS,
-  curry: set(dogs),
+  curry: set(posts),
 });
 
-export const getDogs = () => dispatch =>
-  axios
-    .get(DOG_URL)
-    .then(x => console.log(`x`, x) || setDogs(x.data.message))
-    .then(dispatch);
+export const createPost = post => ({
+  type: CREATE_POST,
+  curry: addPost(post),
+});
+
+export const updatePost = post => ({
+  type: CREATE_POST,
+  curry: updateById(post),
+});
+
+export const deletePost = post => ({
+  type: CREATE_POST,
+  curry: dropPost(post),
+});

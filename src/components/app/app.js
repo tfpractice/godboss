@@ -6,7 +6,7 @@ import { withStyles } from 'material-ui/styles';
 import Home from '../home';
 import Nav from '../nav';
 
-const mainStyles = theme => ({ main: { marginTop: `3rem` } });
+const mainStyles = theme => ({ main: { marginTop: `5rem` } });
 
 const Styled = withStyles(mainStyles, { name: `Home` });
 

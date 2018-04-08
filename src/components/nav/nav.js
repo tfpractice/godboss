@@ -21,7 +21,7 @@ const TabNav = ({ index, hPush, set, match, location, ...rest } = defProps) => (
       <Grid container justify="center" alignContent="center">
         <Tabs
           centered
-          scrollable
+          // scrollable
           value={index}
           // scrollButtons="on"
           textColor="secondary"
