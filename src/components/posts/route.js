@@ -1,26 +1,25 @@
 import Grid from 'material-ui/Grid';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { withStyles } from 'material-ui/styles';
 
+import CardRoute from './card';
 import Home from '../home';
-import PostCard from './card';
+import { CreateForm } from './form';
 
-const Main = ({ match, ...props }) => {
-  console.log(`props`, props);
+const PostsRoute = ({ match, ...props }) => {
+  const a = 0;
+
+  console.log(` PostRouteprops`, props);
+  console.log(` PostRoutematch`, match);
   return (
     <Grid container justify="center" alignContent="center">
       <Grid item xs={11}>
-        <Route exact path="/" component={Home} />
-        <Route path={`${match.url}/:id`} component={PostCard} />
-        postroute
-        {/* <Switch>
-          <Route path="/create" component={Home} />
-        <Route path="/posts" component={Home} />
-      </Switch> */}
+        <Route exact path={match.url} component={Home} />
+        <Route exact path={`${match.url}/:id`} component={CardRoute} />
+        <Route exact path={`${match.url}/create`} component={CreateForm} />
       </Grid>
     </Grid>
   );
 };
 
-export default Main;
+export default PostsRoute;

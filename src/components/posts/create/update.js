@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import ReduxPost from './form';
 import { Posts } from '../../../store';
+import { sameID } from '../../../store/posts/operations';
 
 const PostForm = ({ updatePost, timer, formID, ...props }) => {
   console.log(`formID`, formID);
@@ -16,6 +17,9 @@ const PostForm = ({ updatePost, timer, formID, ...props }) => {
   );
 };
 
-const mapState = ({ timer }) => ({});
+const mapState = ({ posts, post }, { match: { params } }) => {
+  console.log(`params`, params);
+  return { post: post || posts.find(sameID(params)) };
+};
 
 export default connect(mapState, Posts.actions)(PostForm);
