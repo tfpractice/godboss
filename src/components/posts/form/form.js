@@ -65,6 +65,9 @@ const PostBase = ({ handleSubmit }) => (
                         placeholder="message"
                         label="message"
                         type="textarea"
+                        fullWidth
+                        multiline
+                        rows={15}
                       />
                     </Text>
                   </Grid>

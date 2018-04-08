@@ -6,7 +6,7 @@ import ReduxPost from './form';
 import { Posts } from '../../../store';
 import { sameID } from '../../../store/posts/operations';
 
-const EditForm = ({ updatePost, ...props }) => {
+const EditForm = ({ updatePost, post, ...props }) => {
   const a = 0;
 
   return (
@@ -14,7 +14,7 @@ const EditForm = ({ updatePost, ...props }) => {
       <Grid item xs={11}>
         <ReduxPost
           form={`editPost`}
-          // initialValues={props.post}
+          initialValues={post}
           onSubmit={updatePost}
         />
       </Grid>
