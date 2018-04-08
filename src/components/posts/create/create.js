@@ -6,11 +6,11 @@ import ReduxPost from './form';
 import { Posts } from '../../../store';
 
 const PostForm = ({ createPost, timer, formID, ...props }) => {
-  console.log(`formID`, formID);
+  console.log(`formID`, formID, props);
   return (
     <Grid container justify="center" alignContent="center" alignItems="center">
       <Grid item xs={11}>
-        <ReduxPost form={formID} initialValues={post} onSubmit={createPost} />
+        <ReduxPost form={formID} initialValues={{}} onSubmit={createPost} />
       </Grid>
     </Grid>
   );

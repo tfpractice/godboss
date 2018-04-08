@@ -5,6 +5,7 @@ import { withStyles } from 'material-ui/styles';
 
 import Home from '../home';
 import Nav from '../nav';
+import PostsRoute from '../posts';
 
 const mainStyles = theme => ({ main: { marginTop: `5rem` } });
 
@@ -19,6 +20,7 @@ const Main = props => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/create" component={Home} />
+        <Route path="/posts" component={PostsRoute} />
       </Switch>
     </Grid>
   </Grid>

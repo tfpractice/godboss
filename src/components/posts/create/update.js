@@ -10,7 +10,7 @@ const PostForm = ({ updatePost, timer, formID, ...props }) => {
   return (
     <Grid container justify="center" alignContent="center" alignItems="center">
       <Grid item xs={11}>
-        <ReduxPost form={formID} initialValues={post} onSubmit={updatePost} />
+        <ReduxPost form={formID} initialValues={{}} onSubmit={updatePost} />
       </Grid>
     </Grid>
   );

@@ -18,15 +18,13 @@ export const user = ({ user } = post()) => user;
 
 export const id = ({ id } = post()) => id;
 
-export const setId = id => post =>
-  post(id, title(post), message(post), user(post));
+export const setId = id => p => post(title(p), message(p), user(p), id);
 
-export const setTitle = t => post =>
-  post(id(post), t, message(post), user(post));
+export const setTitle = t => p => post(t, message(p), user(p), id(p));
 
-export const setMsg = m => post => post(id(post), title(post), m, user(post));
+export const setMsg = m => p => post(title(p), m, user(p), id(p));
 
-export const sameID = p0 => p1 => id(p0) === id(p1);
+export const sameID = p0 => p1 => id(p0) == id(p1);
 
 export const diffID = p0 => p1 => !sameID(p0)(p1);
 
@@ -41,9 +39,9 @@ export const hasPost = (nxt = post()) => posts => idSet(posts).has(id(nxt));
 
 export const xHasPost = (nxt = post()) => posts => !hasPost(nxt)(posts);
 
-export const appendPost = nxt => posts => post.concat(nxt);
+export const appendPost = nxt => posts => posts.concat(nxt);
 
 export const addPost = nxt => posts =>
-  hasPost(nxt)(posts) ? posts : posts.concat(nxt);
+  hasPost(nxt)(posts) ? posts : appendPost(nxt)(posts);
 
 export const dropPost = nxt => posts => posts.filter(diffID(nxt));

@@ -265,7 +265,7 @@ const config = {
       },
     ],
     'react-app/no-undef': 0,
-    'react/jsx-equals-spacing': [2, 'never'],
+    // 'react/jsx-equals-spacing': [2, 'never'],
     // 'react/jsx-filename-extension': [
     //   0,
     //   {

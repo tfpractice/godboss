@@ -7,8 +7,6 @@ import { Field } from 'redux-form';
 
 import { Form } from '../../../utils';
 
-const { operations: { startString, endString } } = Timer;
-
 const { ClearForm, resetSuccess, TextField } = Form;
 
 const PostBase = ({ handleSubmit }) => (

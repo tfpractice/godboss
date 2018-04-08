@@ -5,8 +5,12 @@ import React from 'react';
 import Text from 'material-ui/Typography';
 import { connect } from 'react-redux';
 
+import { sameID } from '../../../store/posts/operations';
+
 const PostCard = props => {
-  console.log(`props`, props);
+  console.log(`PostCardprops`, props);
+  const { post } = props;
+
   return (
     <Grid container justify="center" alignContent="center" alignItems="center">
       <Grid item xs={11}>
@@ -52,7 +56,9 @@ const PostCard = props => {
   );
 };
 
-const mapState = state => ({});
+const mapState = ({ posts, post }, { match: { params } }) => ({
+  post: post || posts.find(sameID(params)),
+});
 
 const connected = connect(mapState);
 
