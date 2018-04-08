@@ -1,20 +1,23 @@
 import Grid from 'material-ui/Grid';
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
 
 import EditForm from '../form/update';
 import PostCard from './card';
+import { sameID } from '../../../store/posts/operations';
 
-const Main = ({ match, ...props }) => {
-  console.log(`MAIN props`, props);
-  console.log(`MAIN match`, match);
+const PostCardRoute = ({ match, ...props }) => {
+  console.log(`PostCardRoute props`, props);
+  console.log(`PostCardRoute match`, match);
   return (
     <Grid container justify="center" alignContent="center">
       <Grid item xs={11}>
         <Route
+          exact
           path={match.url}
-          component={() => <PostCard post={props.post} />}
+          render={rProps => <PostCard post={props.post} {...rProps} />}
         />
         <Route
           path={`${match.url}/edit`}
@@ -29,4 +32,15 @@ const Main = ({ match, ...props }) => {
   );
 };
 
-export default Main;
+const mapState = ({ posts }, { post, ...own }) => {
+  console.log(`own`, own);
+
+  const { match: { params } = {} } = own;
+
+  // console.log(`params`, params);
+  return { post: post || posts.find(sameID(params)) };
+};
+
+const connected = connect(mapState);
+
+export default connected(PostCardRoute);

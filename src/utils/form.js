@@ -15,14 +15,6 @@ export const ClearForm = form =>
     enableReinitialize,
   })(form);
 
-// const {
-//   input,
-//   label,
-//   type,
-//   meta: { asyncValidating, touched, error },
-//   ...rest
-// } = props;
-
 export const TextField = ({ input, meta, ...rest }) => (
   <TextField inputProps={input} {...meta} {...rest} />
 );

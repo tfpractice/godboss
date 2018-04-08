@@ -1,13 +1,20 @@
 import Grid from 'material-ui/Grid';
 import React from 'react';
+import Text from 'material-ui/Typography';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { PostCard } from '../posts';
 
-const App = ({ posts, ...props }) => {
+const Home = ({ posts, ...props }) => {
   console.log(`posts`, posts, props);
   return (
     <Grid container justify="center" alignContent="center" alignItems="center">
+      <Grid item xs={11}>
+        <Text align="center" variant="headline">
+          The FairyGodBoss Message Board
+        </Text>
+      </Grid>
       <Grid item xs={11}>
         <Grid
           container
@@ -15,9 +22,11 @@ const App = ({ posts, ...props }) => {
           alignContent="center"
           alignItems="center"
         >
-          {posts.map((p, i) => (
-            <Grid key={i} item xs={6} sm={4}>
-              <PostCard post={p} />
+          {posts.map(p => (
+            <Grid key={p.id} item xs={11} sm={11} md={6}>
+              <Link to={`/posts/${p.id}`}>
+                <PostCard post={p} />
+              </Link>
             </Grid>
           ))}
         </Grid>
@@ -30,4 +39,4 @@ const mapState = ({ posts }) => ({ posts });
 
 const connected = connect(mapState);
 
-export default connected(App);
+export default connected(Home);

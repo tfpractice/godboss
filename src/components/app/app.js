@@ -20,8 +20,7 @@ const Main = props => (
     <Grid item xs={10} className={props.classes.main}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/new" component={CreateForm} />
-        <Route exact path="/posts" component={PostsRoute} />
+        <Route path="/posts" component={PostsRoute} />
       </Switch>
     </Grid>
   </Grid>

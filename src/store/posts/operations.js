@@ -1,6 +1,8 @@
+const lorem = `"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco`;
+
 export const post = (
   title = `title`,
-  message = `message`,
+  message = lorem,
   user = `user`,
   id = `id`,
 ) => ({

@@ -24,9 +24,7 @@ const PostCard = props => {
               alignItems="center"
             >
               <Grid item xs={11}>
-                <Text variant="headline" align="center">
-                  {post.content}
-                </Text>
+                <Text>{post.message}</Text>
               </Grid>
             </Grid>
           </CardContent>
@@ -51,14 +49,7 @@ const PostCard = props => {
   );
 };
 
-const mapState = ({ posts }, { post, ...own }) => {
-  console.log(`own`, own);
-
-  // const { post, match: { params } } = own;
-
-  // console.log(`params`, params);
-  return { post };
-};
+const mapState = ({ posts }, { post, ...own }) => ({});
 
 const connected = connect(mapState);
 

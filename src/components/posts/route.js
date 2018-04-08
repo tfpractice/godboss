@@ -9,14 +9,12 @@ import { CreateForm } from './form';
 const PostsRoute = ({ match, ...props }) => {
   const a = 0;
 
-  console.log(` PostRouteprops`, props);
-  console.log(` PostRoutematch`, match);
   return (
     <Grid container justify="center" alignContent="center">
       <Grid item xs={11}>
-        <Route exact path={match.url} component={Home} />
-        <Route exact path={`${match.url}/:id`} component={CardRoute} />
-        <Route exact path={`${match.url}/create`} component={CreateForm} />
+        <Route exact path={match.path} component={Home} />
+        <Route path={`${match.path}/:id`} component={CardRoute} />
+        <Route path={`${match.path}/create`} component={CreateForm} />
       </Grid>
     </Grid>
   );
