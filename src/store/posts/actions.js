@@ -1,6 +1,7 @@
 import {
   addPost,
   dropPost,
+  editPost,
   hasPost,
   idSet,
   update,
@@ -28,7 +29,7 @@ export const createPost = post => ({
 
 export const updatePost = post => ({
   type: CREATE_POST,
-  curry: updateById(post),
+  curry: editPost(post),
 });
 
 export const deletePost = post => ({

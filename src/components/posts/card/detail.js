@@ -1,52 +1,35 @@
-import Avatar from 'material-ui/Avatar';
-import EditIcon from 'material-ui-icons/Edit';
-import Face from 'material-ui-icons/Face';
 import Grid from 'material-ui/Grid';
-import IconButton from 'material-ui/IconButton';
-import List, {
-  ListItem,
-  ListItemAvatar,
-  ListItemIcon,
-  ListItemSecondaryAction,
-  ListItemText,
-} from 'material-ui/List';
-import Paper from 'material-ui/Paper';
 import React from 'react';
 import { connect } from 'react-redux';
 
+import CommentList from './comment';
 import PostCard from './card';
+import { Comments, Posts } from '../../../store';
+import { CreateForm, EditForm } from '../../comments';
 import { sameID } from '../../../store/posts/operations';
 import { samePostID } from '../../../store/comments/operations';
 
 const PostDetail = ({ match, post, comments, ...props }) => (
-  <Grid container justify="center" alignContent="center" alignItems="center">
+  <Grid
+    container
+    justify="center"
+    alignContent="center"
+    spacing={40}
+    alignItems="center"
+  >
     <Grid item xs={11}>
       <PostCard post={post} match={match} />
-      <Grid
-        container
-        justify="center"
-        alignContent="center"
-        alignItems="center"
-      >
-        <Grid item xs={11}>
-          <List>
-            {comments.map((c, i) => (
-              <Paper key={i}>
-                <ListItem>
-                  <ListItemAvatar>
-                    <Face />
-                  </ListItemAvatar>
-                  <ListItemText inset primary={c.message} secondary={c.user} />
-                  <IconButton aria-label="Edit">
-                    <EditIcon />
-                  </IconButton>
-                  {` `}
-                </ListItem>
-              </Paper>
-            ))}
-          </List>
-        </Grid>
-      </Grid>
+    </Grid>
+
+    <Grid item xs={11} sm={7}>
+      <CommentList post={post} match={match} />
+    </Grid>
+    <Grid item xs={11} sm={4}>
+      {props.editing ? (
+        <EditForm post={post} comment={props.currentComment} match={match} />
+      ) : (
+        <CreateForm post={post} />
+      )}
     </Grid>
   </Grid>
 );
@@ -56,10 +39,12 @@ const mapState = ({ posts, comments }, { post, ...own }) => {
 
   return {
     post: post || posts.find(sameID(params)),
+    editing: params.comment_id || false,
+    currentComment: comments.find(sameID({ id: params.comment_id })),
     comments: comments.filter(samePostID({ postId: params.id })),
   };
 };
 
-const connected = connect(mapState);
+const connected = connect(mapState, { ...Posts.actions, ...Comments.actions });
 
 export default connected(PostDetail);

@@ -26,9 +26,7 @@ const Home = ({ posts, ...props }) => {
         >
           {posts.map(p => (
             <Grid key={p.id} item xs={11} sm={6} md={4}>
-              <Link to={`/posts/${p.id}`}>
-                <PostCard post={p} />
-              </Link>
+              <PostCard post={p} />
             </Grid>
           ))}
         </Grid>

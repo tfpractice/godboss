@@ -46,4 +46,7 @@ export const appendPost = nxt => posts => posts.concat(nxt);
 export const addPost = nxt => posts =>
   hasPost(nxt)(posts) ? posts : appendPost(nxt)(posts);
 
+export const editPost = nxt => posts =>
+  hasPost(nxt)(posts) ? posts.map(updateById(nxt)) : appendPost(nxt)(posts);
+
 export const dropPost = nxt => posts => posts.filter(diffID(nxt));

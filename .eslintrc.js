@@ -210,7 +210,7 @@ const config = {
     'no-undef': 2,
     'no-underscore-dangle': 0,
     'no-unused-expressions': 1,
-    'no-unused-vars': 2,
+    'no-unused-vars': 1,
     'no-warning-comments': 0,
     'object-curly-newline': [
       2,
@@ -276,15 +276,15 @@ const config = {
     // 'react/jsx-no-undef': 'off',
     // 'react/jsx-uses-react': 1,
     // 'react/jsx-uses-vars': 1,
-    // 'react/jsx-wrap-multilines': [
-    //   2,
-    //   {
-    //     arrow: true,
-    //     assignment: true,
-    //     declaration: true,
-    //     return: true
-    //   }
-    // ],
+    'react/jsx-wrap-multilines': [
+      2,
+      {
+        arrow: true,
+        assignment: true,
+        declaration: true,
+        return: true,
+      },
+    ],
     // 'react/no-did-mount-set-state': 1,
     // 'react/no-did-update-set-state': 1,
     // 'react/no-multi-comp': 1,

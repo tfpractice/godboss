@@ -43,7 +43,10 @@ export const diffID = p0 => p1 => !sameID(p0)(p1);
 
 export const diffPostID = p0 => p1 => !samePostID(p0)(p1);
 
-export const update = next => orig => ({ ...orig, ...next });
+export const update = next => orig => {
+  console.log(`orig,next`, orig, next);
+  return { ...orig, ...next };
+};
 
 export const updateById = nxt => orig =>
   sameID(nxt)(orig) ? update(nxt)(orig) : orig;
@@ -60,5 +63,10 @@ export const appendComment = nxt => comments => comments.concat(nxt);
 
 export const addComment = nxt => comments =>
   hasComment(nxt)(comments) ? comments : appendComment(nxt)(comments);
+
+export const editComment = nxt => comments =>
+  hasComment(nxt)(comments)
+    ? comments.map(updateById(nxt))
+    : appendComment(nxt)(comments);
 
 export const dropComment = nxt => comments => comments.filter(diffID(nxt));

@@ -2,6 +2,7 @@ import AppBar from 'material-ui/AppBar';
 import Grid from 'material-ui/Grid';
 import React from 'react';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import Text from 'material-ui/Typography';
 import Toolbar from 'material-ui/Toolbar';
 import withStyles from 'material-ui/styles/withStyles';
 import { Link, withRouter } from 'react-router-dom';

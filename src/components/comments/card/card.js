@@ -7,7 +7,6 @@ import Text from 'material-ui/Typography';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CommentCard from './comment';
 import { Comments, Posts } from '../../../store';
 import { sameID } from '../../../store/posts/operations';
 import { samePostID } from '../../../store/comments/operations';

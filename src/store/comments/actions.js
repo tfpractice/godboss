@@ -1,11 +1,4 @@
-import {
-  addComment,
-  dropComment,
-  hasComment,
-  idSet,
-  update,
-  updateById,
-} from './operations';
+import { addComment, dropComment, editComment } from './operations';
 import {
   CREATE_COMMENT,
   DELETE_COMMENT,
@@ -27,11 +20,11 @@ export const createComment = comment => ({
 });
 
 export const updateComment = comment => ({
-  type: CREATE_COMMENT,
-  curry: updateById(comment),
+  type: UPDATE_COMMENT,
+  curry: editComment(comment),
 });
 
 export const deleteComment = comment => ({
-  type: CREATE_COMMENT,
+  type: DELETE_COMMENT,
   curry: dropComment(comment),
 });
