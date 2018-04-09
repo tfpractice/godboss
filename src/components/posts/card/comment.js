@@ -13,6 +13,7 @@ import List, {
 } from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import React from 'react';
+import Text from 'material-ui/Typography';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -48,7 +49,11 @@ const CommentList = ({ match, post, comments, ...props }) => {
                   <Grid item xs={8}>
                     <ListItemText
                       inset
-                      primary={`${c.title} | ${c.user}`}
+                      primary={
+                        <Text component="div" variant="title">{`${c.title} | ${
+                          c.user
+                        }`}</Text>
+                      }
                       secondary={c.message}
                     />
                   </Grid>

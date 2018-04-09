@@ -1,4 +1,4 @@
-const lorem = `"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco`;
+const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim`;
 
 export const comment = (
   postId = `0`,
@@ -43,10 +43,7 @@ export const diffID = p0 => p1 => !sameID(p0)(p1);
 
 export const diffPostID = p0 => p1 => !samePostID(p0)(p1);
 
-export const update = next => orig => {
-  console.log(`orig,next`, orig, next);
-  return { ...orig, ...next };
-};
+export const update = next => orig => ({ ...orig, ...next });
 
 export const updateById = nxt => orig =>
   sameID(nxt)(orig) ? update(nxt)(orig) : orig;
