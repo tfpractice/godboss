@@ -8,6 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import CommentCard from './comment';
 import EditForm from '../form/update';
 import PostCard from './card';
+import PostDetail from './detail';
 import { sameID } from '../../../store/posts/operations';
 import { samePostID } from '../../../store/comments/operations';
 
@@ -17,34 +18,7 @@ const PostCardRoute = ({ match, post, comments, ...props }) => (
       <Route
         exact
         path={match.path}
-        render={rProps => (
-          <Grid
-            container
-            justify="center"
-            alignContent="center"
-            alignItems="center"
-          >
-            <Grid item xs={11}>
-              <PostCard post={post} {...rProps} />
-              <Grid
-                container
-                justify="center"
-                alignContent="center"
-                alignItems="center"
-              >
-                <Grid item xs={11}>
-                  <List>
-                    {comments.map((c, i) => (
-                      <ListItem key={i}>
-                        <CommentCard post={c} {...rProps} />
-                      </ListItem>
-                    ))}
-                  </List>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        )}
+        render={rProps => <PostDetail post={post} {...rProps} />}
       />
       <Route
         exact
