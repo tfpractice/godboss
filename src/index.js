@@ -15,12 +15,13 @@ const App = ({ store }) => (
     <MuiThemeProvider theme={Theme}>
       <BrowserRouter>
         <Route component={Main} />
-      </BrowserRouter>{' '}
+      </BrowserRouter>
+      {` `}
     </MuiThemeProvider>
   </Provider>
 );
 
 window.store = store;
-render(<App store={store} />, document.getElementById('root'));
+render(<App store={store} />, document.getElementById(`root`));
 
 // serviceWorker();
